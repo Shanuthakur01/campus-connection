@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import { Heart, MessageCircle, User } from 'lucide-react';
-import Navbar from './components/Navbar';
 import Discover from './pages/Discover';
 import Messages from './pages/Messages';
 import Profile from './pages/Profile';
@@ -14,6 +13,15 @@ import { useMessage } from './context/MessageContext';
 import socketService from './services/socketService';
 import ChatNotification from './components/ChatNotification';
 import { profiles } from './data/profiles';
+
+// Define user interface
+interface User {
+  id: string;
+  token: string;
+  name?: string;
+  email?: string;
+  [key: string]: any; // Allow for additional properties
+}
 
 // Error boundary component to catch rendering errors
 class ErrorBoundary extends React.Component<
@@ -114,7 +122,7 @@ function App() {
   const navigate = useNavigate();
   const { isAuthenticated, isLoading } = useAuth();
   const { getTotalUnreadCount } = useMessage();
-  const [authUser, setAuthUser] = useState(null);
+  const [authUser, setAuthUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [notification, setNotification] = useState<{
     conversationId: string;

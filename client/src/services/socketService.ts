@@ -1,5 +1,14 @@
 import { io, Socket } from 'socket.io-client';
-import { useAuth } from '../context/AuthContext';
+
+// Define message interface
+interface Message {
+  id: string;
+  conversationId: string;
+  senderId: string;
+  content: string;
+  timestamp: string;
+  read?: boolean;
+}
 
 // Mock socket service implementation to prevent errors
 const socketService = {
@@ -27,10 +36,22 @@ const socketService = {
     console.log('Sending typing status (mock):', { conversationId, isTyping });
   },
   
-  onNewMessage: (callback: (message: any) => void) => {
+  onNewMessage: (callback: (message: Message) => void) => {
     // This is just a mock - no real messages will be received
     console.log('Registered new message callback (mock)');
   },
+  
+  onUserTyping: (callback: (data: { userId: string, conversationId: string, isTyping: boolean }) => void) => {
+    console.log('Registered typing status callback (mock)');
+  },
+  
+  onMessagesRead: (callback: (data: { conversationId: string, userId: string }) => void) => {
+    console.log('Registered messages read callback (mock)');
+  },
+  
+  onUserStatusChange: (callback: (data: { userId: string, isOnline: boolean }) => void) => {
+    console.log('Registered user status change callback (mock)');
+  }
 };
 
 export default socketService; 
