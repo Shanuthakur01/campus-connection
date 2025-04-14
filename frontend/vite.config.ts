@@ -26,4 +26,6 @@ export default defineConfig({
     host: true,
   },
   base: '/',
+  publicDir: 'public',
+  assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg', '**/*.woff', '**/*.woff2', '**/*.ttf', '**/*.eot']
 });
