@@ -59,7 +59,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const checkAuth = async () => {
       try {
         const storedUser = localStorage.getItem('campus_connection_user');
-        if (storedUser) {
+    if (storedUser) {
           const parsedUser = JSON.parse(storedUser);
           
           // If user exists but missing profileImage or photos, try to retrieve from full user data
@@ -150,7 +150,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       });
       
       // Create new user with optimized photos
-      const newUser: User = {
+    const newUser: User = {
         id: `user_${Date.now()}`,
         email: data.email,
         name: data.name,
@@ -181,7 +181,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       
       // Log in user
       localStorage.setItem('campus_connection_user', JSON.stringify(newUser));
-      setUser(newUser);
+    setUser(newUser);
       
       toast.success('Account created successfully! Welcome to Campus Connection.');
     } catch (error: any) {

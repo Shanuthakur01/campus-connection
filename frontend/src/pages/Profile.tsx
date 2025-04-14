@@ -494,7 +494,7 @@ const Profile: React.FC = () => {
                       
                       <h3 className="text-lg font-semibold mt-6 mb-2 text-gray-700">Interests</h3>
                     <div className="flex flex-wrap gap-2">
-                        {profileData.interests.map((interest, index) => (
+                      {profileData.interests.map((interest, index) => (
                         <span 
                           key={index} 
                             className="px-4 py-1 bg-purple-100 text-purple-600 rounded-full text-sm"

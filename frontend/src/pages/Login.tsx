@@ -40,7 +40,7 @@ const Login: React.FC = () => {
     try {
       await login(formData.email, formData.password);
       setSuccess('Login successful!');
-      setTimeout(() => navigate(from, { replace: true }), 1000);
+        setTimeout(() => navigate(from, { replace: true }), 1000);
     } catch (err: any) {
       setError(err.message || 'Failed to login. Please check your credentials.');
     } finally {
