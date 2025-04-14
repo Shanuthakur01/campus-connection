@@ -9,8 +9,9 @@
     "start:client": "cd client && npm run dev",
     "install:all": "npm install && cd client && npm install && cd ../backend && npm install",
     "build": "cd client && npm run build",
-    "lint": "cd client && npm run lint",
-    "dev": "concurrently \"cd backend && npm run dev\" \"cd client && npm run dev\""
+    "lint": "cd client && npm run lint", 
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd client && npm run dev\"",
+    "start:prod": "cd backend && npm start && cd client && npm run build"
   },
   "keywords": [
     "dating",
@@ -27,4 +28,4 @@
   "engines": {
     "node": ">=16.0.0"
   }
-} 
+}
