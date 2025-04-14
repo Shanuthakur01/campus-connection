@@ -46,6 +46,28 @@ The backend provides API endpoints for user authentication, profile management, 
 - JWT for authentication
 - Socket.IO for real-time communication
 
+## Real-Time Chat System
+
+### Features
+
+- **Instant Messaging**: Messages are delivered instantly without page refresh
+- **Typing Indicators**: See when the other person is typing
+- **Read Receipts**: Know when your messages have been read
+- **Online Status**: See when users are online/offline
+- **Real-time Notifications**: Get notified of new messages even when not on the chat page
+
+### Technical Implementation
+
+#### Socket.IO Integration
+
+The chat system utilizes Socket.IO to handle WebSocket connections. The main components are:
+
+1. **Socket Authentication**: Users are authenticated via JWT tokens
+2. **Conversation Rooms**: Users join specific conversation rooms
+3. **Message Persistence**: All messages are stored in the database
+4. **Online Status Tracking**: User online status is tracked and broadcast to relevant users
+5. **Typing Indicators**: Real-time typing status updates
+
 ## Deployment
 
 The application is configured for deployment on Vercel:
@@ -64,8 +86,17 @@ To run the full application locally:
 
 ## Environment Variables
 
-Remember to set up environment variables for both frontend and backend. See the respective README files for details.
+Remember to set up environment variables for both frontend and backend. The following variables are required:
+
+```env
+# Frontend (.env in client directory)
+VITE_API_URL=your_api_url
+
+# Backend (.env in backend directory)
+JWT_SECRET=your_jwt_secret
+MONGODB_URI=your_mongodb_connection_string
+```
 
 ## License
 
-This project is licensed under the MIT License. 
+This project is licensed under the MIT License.
