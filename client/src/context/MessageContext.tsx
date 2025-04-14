@@ -159,8 +159,8 @@ export const MessageProvider: React.FC<{ children: React.ReactNode }> = ({ child
   // Load conversations and messages from localStorage
   useEffect(() => {
     if (user) {
-      const storedConversations = localStorage.getItem(`campusConnection_conversations_${user.id}`);
-      const storedMessages = localStorage.getItem(`campusConnection_messages_${user.id}`);
+      const storedConversations = localStorage.getItem(`campus_connection_conversations_${user.id}`);
+      const storedMessages = localStorage.getItem(`campus_connection_messages_${user.id}`);
       
       if (storedConversations) {
         setConversations(JSON.parse(storedConversations));
@@ -175,8 +175,8 @@ export const MessageProvider: React.FC<{ children: React.ReactNode }> = ({ child
   // Save conversations and messages to localStorage
   useEffect(() => {
     if (user) {
-      localStorage.setItem(`campusConnection_conversations_${user.id}`, JSON.stringify(conversations));
-      localStorage.setItem(`campusConnection_messages_${user.id}`, JSON.stringify(messages));
+      localStorage.setItem(`campus_connection_conversations_${user.id}`, JSON.stringify(conversations));
+      localStorage.setItem(`campus_connection_messages_${user.id}`, JSON.stringify(messages));
     }
   }, [conversations, messages, user]);
 

@@ -160,7 +160,7 @@ function App() {
 
   useEffect(() => {
     // Get user from local storage
-    const userData = localStorage.getItem('campusConnection_user');
+    const userData = localStorage.getItem('campus_connection_user');
     if (userData) {
       const user = JSON.parse(userData);
       setAuthUser(user);
