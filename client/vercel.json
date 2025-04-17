@@ -9,25 +9,19 @@
       }
     }
   ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/(.*\\.(js|css|json|ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot))",
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ],
   "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "/assets/:path*"
+    },
+    {
+      "source": "/:all*.(js|css|json|ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)",
+      "destination": "/:all*"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
@@ -44,4 +38,4 @@
       ]
     }
   ]
-} 
+}
